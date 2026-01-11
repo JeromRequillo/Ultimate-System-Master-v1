@@ -1,4 +1,15 @@
 @echo off
+:: =================================================================
+:: ULTIMATE SYSTEM MASTER v1.0
+:: Copyright (c) 2026 JEROM REQUILLO
+::
+:: This code is licensed under the MIT License.
+:: You are free to use, modify, and distribute this script, 
+:: provided that this copyright notice remains intact.
+::
+:: GitHub: https://github.com/JeromRequillo/Ultimate-System-Master-v1
+:: =================================================================
+
 setlocal enabledelayedexpansion
 
 :: [1] AUTO-ADMIN ELEVATION
