@@ -8,7 +8,10 @@
 :: provided that this copyright notice remains intact.
 ::
 :: GitHub: https://github.com/JeromRequillo/Ultimate-System-Master-v1
-:: =================================================================
+:: =====================================================================
+:: WARNING: Unauthorized removal of this header is a violation of the 
+:: MIT License terms and the author's copyright.
+:: =====================================================================
 
 setlocal enabledelayedexpansion
 
@@ -24,35 +27,49 @@ if %errorLevel% neq 0 (
     exit /b
 )
 
+:SPLASH
+cls
+color 0B
+echo.
+echo      _   _  ____  __  __ 
+echo     ^| ^| ^| ^|/ ___^|^|  \/  ^|
+echo     ^| ^| ^| ^|\___ \^| ^|\/^| ^|
+echo     ^| ^|_^| ^| ___) ^| ^|  ^| ^|
+echo      \___/^|____/^|_^|  ^|_^|
+echo.
+echo    ULTIMATE SYSTEM MASTER v1.0
+echo       Created by: JEROM REQUILLO
+echo.
+timeout /t 3 >nul
+goto MENU
 :: CODE STARTS HERE
 set "LOGFILE=%USERPROFILE%\Desktop\Maintenance_Log.txt"
 set PATH=%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SystemRoot%\System32\WindowsPowerShell\v1.0\
 
 :MENU
 cls
-title JEROM REQUILLO - ULTIMATE SYSTEM MASTER v2.0
+title JEROM REQUILLO - ULTIMATE SYSTEM MASTER v1.0
 color 0B
 
 echo.
 echo  ============================================================
 echo      SYSTEM MAINTENANCE ^& OPTIMIZATION MASTER TOOL
 echo  ------------------------------------------------------------
-echo      Developer   : JEROM REQUILLO
+echo      Developer   : JEROM REQUILLO (github.com/JeromRequillo)
 echo      Version     : 1.0 
 echo      Status      : Admin Mode Active
 echo  ============================================================
 echo.
-echo    [1] DEEP CLEAN /REFRESH     [10] SYSTEM INFO
-echo    [2] QUICK CLEAN             [11] THEME TOGGLE
-echo    [3] BROWSER CLEAN           [12] DNS SWITCHER
-echo    [4] SYSTEM REPAIR           [13] WINGET APP UPDATER
-echo    [5] NETWORK BOOST           [14] ULTIMATE PERFORMANCE
-echo    [6] REGISTRY OPTIMIZER      [15] SHOW WI-FI PASSWORDS
-echo    [7] RAM OPTIMIZER           [16] MICROSOFT ACTIVATION
-echo    [8] WINDOWS DEBLOATER       [17] CHRIS TITUS WINUTIL
-echo    [9] PC HEALTH CHECK         [18] WINDOWS RUN COMMANDS
-echo.
-echo    [19] EXIT ^& SAVE LOG
+echo    [1] DEEP CLEAN /REFRESH     [11] THEME TOGGLE
+echo    [2] QUICK CLEAN             [12] DNS SWITCHER
+echo    [3] BROWSER CLEAN           [13] WINGET APP UPDATER
+echo    [4] SYSTEM REPAIR           [14] ULTIMATE PERFORMANCE
+echo    [5] NETWORK BOOST           [15] SHOW WI-FI PASSWORDS
+echo    [6] REGISTRY OPTIMIZER      [16] MICROSOFT ACTIVATION
+echo    [7] RAM OPTIMIZER           [17] CHRIS TITUS WINUTIL
+echo    [8] WINDOWS DEBLOATER       [18] WINDOWS RUN COMMANDS
+echo    [9] PC HEALTH CHECK         [19] EXIT ^& SAVE LOG
+echo    [10] SYSTEM INFO            [20] ABOUT DEVELOPER
 echo.
 echo  ============================================================
 set /p choice="Piliin ang iyong nais (1-18): "
@@ -76,6 +93,7 @@ if "%choice%"=="16" goto ACTIVATE
 if "%choice%"=="17" goto CTITUS
 if "%choice%"=="18" goto RUN_COMMANDS_MENU
 if "%choice%"=="19" goto EXIT_LOG
+if "%choice%"=="20" goto ABOUT
 goto MENU
 
 :: --- [ FUNCTIONS ] ---
@@ -83,7 +101,11 @@ goto MENU
 :DEEPCLEAN
 cls
 call :ColorText Yellow "[SYSTEM] Running Ultimate Full Auto Maintenance..."
-echo Maintenance Start: %date% %time% > "%LOGFILE%"
+echo ============================================================ > "%LOGFILE%"
+echo ULTIMATE SYSTEM MASTER MAINTENANCE LOG >> "%LOGFILE%"
+echo Developer: Jerom Requillo >> "%LOGFILE%"
+echo Date: %date% %time% >> "%LOGFILE%"
+echo ============================================================ >> "%LOGFILE%"
 
 :: [ silent cleanups]
 call :QUICK_SILENT
@@ -182,6 +204,7 @@ pause
 goto MENU
 
 :NETBOOST
+:: Network Stack Reset - Part of Ultimate System Master by Jerom Requillo
 cls
 call :ColorText Cyan "[+] Resetting TCP/IP Stack..."
 netsh int ip reset >nul 2>&1
@@ -202,6 +225,7 @@ pause
 goto MENU
 
 :RAMOPT
+:: Logic optimized by Jerom Requillo
 cls
 call :ColorText Yellow "[SYSTEM] Upgraded RAM Optimization in progress..."
 
@@ -491,6 +515,25 @@ if "%cmd%"=="3" start osk
 if "%cmd%"=="4" start magnify
 if "%cmd%"=="5" start narrator
 goto RUN_COMMANDS_MENU
+
+:ABOUT
+cls
+call :ColorText Cyan "============================================================"
+echo           ABOUT ULTIMATE SYSTEM MASTER v1.0
+call :ColorText Cyan "============================================================"
+echo.
+echo   Developer     : Jerom Requillo
+echo   GitHub        : github.com/JeromRequillo
+echo   Build Date    : January 2026
+echo.
+echo   LICENSE:
+echo   This software is protected under the MIT License. 
+echo   Redistribution must retain the original author's credit.
+echo.
+call :ColorText Yellow "Thank you for using my tool!"
+echo.
+pause
+goto MENU
 
 :EXIT_LOG
 echo Maintenance End: %date% %time% >> "%LOGFILE%"
